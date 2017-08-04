@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "start:dev": "nodemon --watch lib lib/server"
+    "start:dev": "nodemon --watch lib lib/server",
+    "build": "node lib/build --production"
   },
   "license": "MIT",
   "dependencies": {
@@ -29,6 +30,7 @@
     "webpack": "^3.4.1",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-node-externals": "^1.6.0",
+    "yargs": "^8.0.2"
   }
 }

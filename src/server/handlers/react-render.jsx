@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import App from '../../shared/App';
 
 
-const createHtml = (reactRender) => `
+const createHtml = reactRender => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +17,9 @@ const createHtml = (reactRender) => `
     <script src="/assets/main.bundle.js"></script>
 </body>
 </html>
-`
+`;
 export default (req, res) => {
     const render = renderToString(<App />);
 
     res.send(createHtml(render));
-}
+};

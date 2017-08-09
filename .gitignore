@@ -1,3 +1,4 @@
 node_modules/
-public/assets/
+/public/assets/
+/public/shell.html
 /server.js

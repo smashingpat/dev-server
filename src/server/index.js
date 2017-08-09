@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyparser from 'body-parser';
+import compression from 'compression';
 import reactRenderHandler from './handlers/react-render';
 
 
@@ -8,6 +9,7 @@ import reactRenderHandler from './handlers/react-render';
 ------------------------------------------ */
 export const server = express();
 
+server.use(compression());
 server.use(express.static('public'));
 server.use(bodyparser.urlencoded({ extended: true }));
 server.use(bodyparser.json());

@@ -1,4 +1,3 @@
 node_modules/
-/public/assets/
-/public/shell.html
+/static-rev/
 /server.js

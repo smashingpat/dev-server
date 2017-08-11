@@ -1,16 +1,18 @@
-import fs from 'fs';
-import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from '../../shared/App';
+import manifest from '../manifest';
 
+const createHtml = render => `
+    <link rel="stylesheet" href="${manifest.main.css}">
+    <div id="mount">${render}</div>
+    <script src="${manifest.runtime.js}"></script>
+    <script src="${manifest.vendor.js}"></script>
+    <script src="${manifest.main.js}"></script>
+`;
 
 export default (req, res) => {
     const render = renderToString(<App />);
-    const html = fs.readFileSync(path.resolve(__dirname, './public/shell.html'), 'utf-8');
 
-    res.send(html.replace(
-        '<div id="mount"></div>',
-        `<div id="mount">${render}</div>`,
-    ));
+    res.send(createHtml(render));
 };

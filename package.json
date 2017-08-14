@@ -19,6 +19,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.2",
+    "browser-sync": "^2.18.13",
     "chalk": "^2.0.1",
     "compression": "^1.7.0",
     "css-loader": "^0.28.4",

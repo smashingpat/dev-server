@@ -3,7 +3,7 @@ const { middleware } = require('./middleware');
 const config = require('../config');
 
 
-const bs = browserSync.create();
+const bs = browserSync.create('dev-server');
 const bsConfig = {
     middleware,
     port: config.port,
@@ -11,17 +11,15 @@ const bsConfig = {
     logLevel: 'silent',
 };
 
-exports.startServer = () => {
-    bs.init(bsConfig, () => {
-        const message = ` server running at http://localhost:${bs.getOption('port')} `;
-        const line = Array(message.length + 1).join('=');
+bs.init(bsConfig, () => {
+    const message = ` server running at http://localhost:${bs.getOption('port')} `;
+    const line = Array(message.length + 1).join('=');
 
-        console.log([
-            '',
-            line,
-            message,
-            line,
-            '',
-        ].join('\n'));
-    });
-};
+    console.log([
+        '',
+        line,
+        message,
+        line,
+        '',
+    ].join('\n'));
+});

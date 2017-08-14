@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "node tasks/server --serve",
     "start:watch": "node lib/server",
     "start:dev": "nodemon --inspect --watch lib lib/server",
     "build": "node lib/build --production"
@@ -31,6 +31,7 @@
     "express": "^4.15.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "hbs": "^4.0.1",
     "html-webpack-plugin": "^2.30.1",
     "lodash": "^4.17.4",
     "memory-fs": "^0.4.1",

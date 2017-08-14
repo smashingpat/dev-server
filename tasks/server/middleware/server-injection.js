@@ -1,5 +1,5 @@
 const { createBundler, configServer } = require('../../webpack');
-const { events, WEBPACK_BUNDLE_ASSETS } = require('../../events');
+const { events, WEBPACK_BUNDLE_ASSETS_DONE } = require('../../lib/events');
 
 module.exports = () => {
     const bundler = createBundler(configServer);
@@ -16,18 +16,13 @@ module.exports = () => {
         handler = server;
     };
 
-    bundler.watch({}, (err, stats) => {
+    bundler.watch({}, (err) => {
         if (err) throw new Error(err);
-
-        console.log(stats.toString({
-            chunks: false,
-            colors: true,
-        }));
 
         replaceServer();
     });
 
-    events.on(WEBPACK_BUNDLE_ASSETS, replaceServer);
+    events.on(WEBPACK_BUNDLE_ASSETS_DONE, replaceServer);
 
     return (...args) => handler(...args);
 };

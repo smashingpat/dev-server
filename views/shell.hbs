@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {{#if manifest.main.css }}<link rel="stylesheet" href="/{{manifest.main.css}}">{{/if}}
+</head>
+<body>
+    <div id="mount">{{ reactRender }}</div>
+    {{#if manifest.runtime.js }}<script src="/{{manifest.runtime.js}}"></script>{{/if}}
+    {{#if manifest.vendor.js }}<script src="/{{manifest.vendor.js}}"></script>{{/if}}
+    {{#if manifest.main.js }}<script src="/{{manifest.main.js}}"></script>{{/if}}
+</body>
+</html>
